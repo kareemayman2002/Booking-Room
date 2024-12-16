@@ -48,7 +48,7 @@ alignment: Alignment.bottomCenter,
               child: OutlinedButton(
                   onPressed: () {
     final next = currentPage+1;
-    currentPage == _pages.length-1 ? Navigator.pushNamed(context, 'loginScreen') : jumpToNextPage(next);
+    currentPage == _pages.length-1 ? Navigator.pushNamed(context, 'verifyCodeScreen') : jumpToNextPage(next);
           },
               style: ElevatedButton.styleFrom(
                 side: const BorderSide(color: Color(0xff20473E)),
