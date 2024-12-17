@@ -1,5 +1,7 @@
 
 import 'package:booking_room/core/utils/assets.dart';
+import 'package:booking_room/features/auth/views/widgets/custom_button_auth.dart';
+import 'package:booking_room/features/auth/views/widgets/custom_logo_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +20,8 @@ class RegisterScreen extends StatelessWidget {
         body: Column(
 
           children: [
-            
-            Padding(padding: EdgeInsets.only(left: 79,right: 79,top:40 ,bottom: 22)
-            ,child: Image.asset(AppAssets.logo,fit: BoxFit.fill,),),
+
+            CustomLogoAuth(),
             
             Container(
               width: 342 ,
@@ -89,23 +90,24 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 24),
-                    Center(
-                      child: Container(
-                        width: 323,
-                        height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
-                          },
-                          child: Text('SIGN UP',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: Colors.white),),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff20473E),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Center(
+                    //   child: Container(
+                    //     width: 323,
+                    //     height: 50,
+                    //     child: ElevatedButton(
+                    //       onPressed: () {
+                    //       },
+                    //       child: Text('SIGN UP',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: Colors.white),),
+                    //       style: ElevatedButton.styleFrom(
+                    //         backgroundColor: Color(0xff20473E),
+                    //         shape: RoundedRectangleBorder(
+                    //           borderRadius: BorderRadius.circular(10),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    CustomButtonAuth(title: 'SIGN UP', onPressed: () { Navigator.pushNamed(context,'verifyCodeScreen'); },),
                 SizedBox(height: 15,),
                 Center(
                   child: RichText(
@@ -128,3 +130,4 @@ class RegisterScreen extends StatelessWidget {
 
   }
 }
+

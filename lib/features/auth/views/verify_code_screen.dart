@@ -1,3 +1,5 @@
+import 'package:booking_room/features/auth/views/widgets/custom_button_auth.dart';
+import 'package:booking_room/features/auth/views/widgets/custom_logo_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -16,13 +18,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(left: 79, right: 79, top: 50),
-            child: Image.asset(
-              AppAssets.logo,
-              fit: BoxFit.fill,
-            ),
-          ),
+          CustomLogoAuth(),
           Padding(
             padding: const EdgeInsets.only(
                 left: 24, right: 24, top: 45),
@@ -45,7 +41,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                                 color: Color(0xff101623)),
                           ),
                           const Text(
-                            "Enter code that we have sent to your number \n 012345678*** ",
+                            "Enter code that we have sent to your email \n moh12***@gmail.com ",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
@@ -61,7 +57,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                               // keyboardType: TextInputType.number,
                               underlineColor: Color(0xff68F3D6), // If this is null it will use primaryColor: Colors.red from Theme
                               length: 6,
-                              padding: EdgeInsets.only(left: 7),
+                              margin: EdgeInsets.only(left: 18),
                               cursorColor: Color(0xff68F3D6),
                               onCompleted: (String value) {  },
                               onEditing: (bool value) {  },
@@ -71,29 +67,30 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                           SizedBox(height: 40,),
 
                           ///////////////////////////////////
-                          Center(
-                            child: Container(
-                              width: 323,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                },
-                                child: Text(
-                                  'Verify',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 12,
-                                      color: Colors.white),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xff20473E),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Center(
+                          //   child: Container(
+                          //     width: 323,
+                          //     height: 50,
+                          //     child: ElevatedButton(
+                          //       onPressed: () {
+                          //       },
+                          //       child: Text(
+                          //         'Verify',
+                          //         style: TextStyle(
+                          //             fontWeight: FontWeight.w500,
+                          //             fontSize: 12,
+                          //             color: Colors.white),
+                          //       ),
+                          //       style: ElevatedButton.styleFrom(
+                          //         backgroundColor: Color(0xff20473E),
+                          //         shape: RoundedRectangleBorder(
+                          //           borderRadius: BorderRadius.circular(10),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          CustomButtonAuth(title: 'Verify', onPressed: () { Navigator.pushNamed(context,''); },),
                         ]))),
           )
         ],
