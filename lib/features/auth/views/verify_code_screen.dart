@@ -90,11 +90,38 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                           //     ),
                           //   ),
                           // ),
-                          CustomButtonAuth(title: 'Verify', onPressed: () { Navigator.pushNamed(context,''); },),
+                          CustomButtonAuth(title: 'Verify', onPressed: () {
+                              _showMyDialog();
+                            },),
                         ]))),
           )
         ],
       ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          // title: const Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+
+                Image.asset(AppAssets.success),
+                Center(child: Text('Success',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20),)),
+                Center(child: Text(' You have successfully reset \n your password.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),)),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            CustomButtonAuth(title: 'Done', onPressed: (){Navigator.of(context).pop();})
+          ],
+        );
+      },
     );
   }
 }
