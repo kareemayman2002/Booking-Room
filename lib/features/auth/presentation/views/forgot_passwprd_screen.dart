@@ -1,5 +1,5 @@
-import 'package:booking_room/features/auth/views/widgets/custom_button_auth.dart';
-import 'package:booking_room/features/auth/views/widgets/custom_logo_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_button_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_logo_auth.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {

@@ -1,9 +1,9 @@
-import 'package:booking_room/features/auth/views/widgets/custom_button_auth.dart';
-import 'package:booking_room/features/auth/views/widgets/custom_logo_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_logo_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_button_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_logo_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/assets.dart';
 
 class LoginScreen extends StatelessWidget {
   TextEditingController email = TextEditingController();

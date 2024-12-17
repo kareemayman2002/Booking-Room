@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/auth/views/forgot_passwprd_screen.dart';
-import '../../features/auth/views/login_screen.dart';
-import '../../features/auth/views/register_screen.dart';
-import '../../features/auth/views/verify_code_screen.dart';
+import '../../features/auth/presentation/views/forgot_passwprd_screen.dart';
+import '../../features/auth/presentation/views/login_screen.dart';
+import '../../features/auth/presentation/views/register_screen.dart';
+import '../../features/auth/presentation/views/verify_code_screen.dart';
 import '../../features/splash/presentation/views/onboarding_one_screen.dart';
 import '../../features/splash/presentation/views/onboarding_pageView.dart';
 import '../../features/splash/presentation/views/splash_screen.dart';

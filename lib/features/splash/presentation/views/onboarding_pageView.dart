@@ -2,7 +2,6 @@ import 'package:booking_room/features/splash/presentation/views/onboarding_two_s
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../auth/views/login_screen.dart';
 import 'onboarding_one_screen.dart';
 import 'onboarding_three_screen.dart';
 

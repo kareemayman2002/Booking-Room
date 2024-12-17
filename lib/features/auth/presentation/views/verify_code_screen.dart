@@ -1,9 +1,10 @@
-import 'package:booking_room/features/auth/views/widgets/custom_button_auth.dart';
-import 'package:booking_room/features/auth/views/widgets/custom_logo_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_button_auth.dart';
+import 'package:booking_room/features/auth/presentation/views/widgets/custom_logo_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-import '../../../core/utils/assets.dart';
+import '../../../../core/utils/assets.dart';
+
 
 class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({super.key});
