@@ -11,6 +11,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         child: Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 80,),
           CustomLogoAuth(),
           Container(
             width: 342,
