@@ -1,15 +1,20 @@
 import 'package:booking_room/core/utils/assets.dart';
+import 'package:booking_room/core/utils/colors.dart';
+import 'package:booking_room/features/home/presentation/views/widgets/custom_drawer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // var scaffoldKey = GlobalKey<ScaffoldState>();
   int selectedIndex = 0;
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   void onItemTapped(int index) {
     setState(() {
@@ -21,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: scaffoldKey,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: ClipRRect(
           borderRadius: BorderRadius.circular(50),
@@ -76,6 +82,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           type: BottomNavigationBarType.fixed,
         ),
+        drawer: Drawer(
+          width: 250,
+          child:  CustomDrawer(),
+        ),
+
         body: CustomScrollView(
           slivers: [
             // القسم العلوي بالصورة والأيقونات
@@ -85,9 +96,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height * 0.25,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(AppAssets.home), // استبدل الصورة بالمناسبة
+                        image: AssetImage(AppAssets.event),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -105,43 +116,73 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 10,
-                    left: 10,
-                    child: IconButton(
-                      icon: const Icon(Icons.menu),
-                      color: Colors.white,
-                      onPressed: () {
-                        // فتح القائمة الجانبية
-                        Scaffold.of(context).openDrawer();
-                      },
-                    ),
-                  ),
+                      top: 10,
+                      left: 10,
+                      child: MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            scaffoldKey.currentState!.openDrawer();
+                          });
+                        },
+                        child: const Icon(Icons.menu,color: Colors.white,),
+                      )),
                   Positioned(
-                    bottom: 10,
-                    right: 10,
+                    bottom: 30,
+                    right: 20,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Row(
-                          children: const [
-                            Icon(Icons.star, color: Colors.yellow),
-                            Text("4.8", style: TextStyle(color: Colors.white)),
-                          ],
-                        ),
-                        const SizedBox(height: 5),
-                        const Text(
-                          "Course Location",
-                          style: TextStyle(color: Colors.white),
+                        Container(
+                          width: 51,
+                          height: 22,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: AppColors.iconDrawer,
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.star, color: Colors.yellow),
+                              Text("4.7",
+                                  style: TextStyle(color: Colors.white)),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
                   Positioned(
+                      bottom: 70,
+                      left: 10,
+                      child: Container(
+                        height: 33,
+                        width: 123,
+                        decoration: BoxDecoration(
+                            color: AppColors.iconDrawer,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Course Location",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      )),
+                  const Positioned(
                     bottom: 10,
                     left: 10,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Course Name",
                           style: TextStyle(
@@ -166,10 +207,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             // قسم الريفيو
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: const Text(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: Text(
                   "Reviews",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
@@ -181,18 +222,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    _buildReviewImage('assets/images/review1.png'),
-                    _buildReviewImage('assets/images/review2.png'),
-                    _buildReviewImage('assets/images/review3.png'),
-                    _buildReviewImage('assets/images/review4.png'),
+                    _buildReviewImage(AppAssets.review),
+                    _buildReviewImage(AppAssets.review),
+                    _buildReviewImage(AppAssets.review),
+                    _buildReviewImage(AppAssets.review),
+                    _buildReviewImage(AppAssets.review),
+
                   ],
                 ),
               ),
             ),
             // النقاط التفاعلية
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -208,10 +251,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             // قسم التصنيفات
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: const Text(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
                   "Categories",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
@@ -226,8 +269,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildReviewImage(String imagePath) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+      child: Container(
+        width: 217,
+        height: 149,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Image.asset(
           imagePath,
           width: 80,

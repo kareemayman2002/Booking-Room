@@ -9,7 +9,7 @@ class CustomCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 24,right: 24,top: 15,bottom: 10),
-      child: Container(
+      child: SizedBox(
 
           height: 200,
           width: 366,
@@ -41,11 +41,11 @@ class CustomCourse extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(117, 200, 183, 0.52),
+                        color: const Color.fromRGBO(117, 200, 183, 0.52),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children:  [
                           Icon(
                             Icons.star,
                             color: Colors.yellow,
@@ -63,7 +63,7 @@ class CustomCourse extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     top: 25,
                     right: 25,
                     child: CircleAvatar(
@@ -89,10 +89,10 @@ class CustomCourse extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.6),
                             blurRadius: 8,
                             spreadRadius: 4,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           ),
                         ],
-                        color: Color.fromRGBO(255, 255, 255, 1),
+                        color: const Color.fromRGBO(255, 255, 255, 1),
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           bottomRight: Radius.circular(20),

@@ -7,11 +7,11 @@ class CustomOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
         width: 163,
         height: 176,
         alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(12),topRight:Radius.circular(12),bottomLeft: Radius.circular(12),bottomRight: Radius.circular(12) ),
                 color: Color(0xffFFFFFF)
           ),
@@ -20,12 +20,12 @@ class CustomOffer extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12)),child: Image.asset(AppAssets.offers,fit: BoxFit.fill,)),
-              Text("Today’s offer",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+              ClipRRect(borderRadius: const BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12)),child: Image.asset(AppAssets.offers,fit: BoxFit.fill,)),
+              const Text("Today’s offer",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("10% discount on 3 \n hours or more",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w400),),
+                  const Text("10% discount on 3 \n hours or more",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w400),),
                   IconButton(onPressed: (){}, icon: Image.asset(AppAssets.next))
                 ],
               ),

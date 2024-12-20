@@ -1,4 +1,4 @@
-import 'package:booking_room/features/home/presentation/views/widgets/custom_course.dart';
+import 'package:booking_room/features/course/presentation/views/widgets/custom_course.dart';
 import 'package:flutter/material.dart';
 
 class CourseScreen extends StatelessWidget {
@@ -6,7 +6,7 @@ class CourseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
       body: Column(
         children: [

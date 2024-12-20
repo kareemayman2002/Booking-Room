@@ -7,8 +7,8 @@ class GridviewEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.all(24),
+      padding: const EdgeInsets.all(24),
       shrinkWrap: true,
-      itemBuilder:(context,index)=> CustomEvent(),itemCount: 6, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),);
+      itemBuilder:(context,index)=> const CustomEvent(),itemCount: 6, gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),);
   }
 }

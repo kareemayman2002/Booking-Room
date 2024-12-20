@@ -19,4 +19,6 @@ class AppAssets{
   static const event = "$asset/img_12.png";
   static const next = "$asset/img_13.png";
   static const offers = "$asset/img_15.png";
+  static const menue = "$asset/img_17.png";
+  static const review = "$asset/img_18.png";
 }

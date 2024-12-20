@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'custom_offer.dart';
 
+
 class GridviewOffers extends StatelessWidget {
   const GridviewOffers({super.key});
 

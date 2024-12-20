@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     setState(() {
-      Timer(Duration(seconds: 3),(){
+      Timer(const Duration(seconds: 3),(){
         Navigator.pushNamed(context, "onboardingScreen");
       });
     });
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Container(
         width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(AppAssets.splash))),
+          decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AppAssets.splash))),
 
     );
   }
