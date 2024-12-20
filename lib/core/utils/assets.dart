@@ -11,4 +11,12 @@ class AppAssets{
   static const onboarding_3 = "$asset/img_3.png";
   static const logo = "$asset/img_4.png";
   static const success = "$asset/img_5.png";
+  static const home = "$asset/img_6.png";
+  static const book = "$asset/img_7.png";
+  static const offer = "$asset/img_8.png";
+  static const more = "$asset/img_9.png";
+  static const course = "$asset/img_11.png";
+  static const event = "$asset/img_12.png";
+  static const next = "$asset/img_13.png";
+  static const offers = "$asset/img_15.png";
 }

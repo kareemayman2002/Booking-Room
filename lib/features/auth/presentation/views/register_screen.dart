@@ -21,13 +21,13 @@ class RegisterScreen extends StatelessWidget {
 
           children: [
 
-            CustomLogoAuth(),
+            const CustomLogoAuth(),
             
             Container(
               width: 342 ,
               height: 488 ,
               decoration: BoxDecoration(
-                color: Color(0xffF2F2F2),
+                color: const Color(0xffF2F2F2),
 
                 borderRadius: BorderRadius.circular(20)
               ),
@@ -36,60 +36,60 @@ class RegisterScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Email",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
-                    SizedBox(height: 5),
+                    const Text("Email",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: email,
                       decoration: InputDecoration(
                         hintText: 'Enter your Email',
-                        hintStyle: TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+                        hintStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
                         // labelText: 'البريد الإلكتروني',
-                        prefixIcon: Icon(Icons.email_outlined),
+                        prefixIcon: const Icon(Icons.email_outlined),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                       ),
                     ),
-                    SizedBox(height: 10,),
-                    Text("User Name",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 10,),
+                    const Text("User Name",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: userName,
                       decoration: InputDecoration(
                         hintText: 'Enter your name',
-                        hintStyle: TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+                        hintStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
                         // labelText: 'البريد الإلكتروني',
-                        prefixIcon: Icon(Icons.email_outlined),
+                        prefixIcon: const Icon(Icons.email_outlined),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text("Password",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 10),
+                    const Text("Password",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: password,
                       obscureText: true,
                       decoration: InputDecoration(
                         hintText: 'Enter your password',
-                        hintStyle: TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+                        hintStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
                         // labelText: 'كلمة المرور',
-                        prefixIcon: Icon(Icons.lock_outline),
+                        prefixIcon: const Icon(Icons.lock_outline),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text("Confirm Password",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 10),
+                    const Text("Confirm Password",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: confirm,
                       obscureText: true,
                       decoration: InputDecoration(
                         hintText: 'Confirm Password',
-                        hintStyle: TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+                        hintStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
                         // labelText: 'كلمة المرور',
-                        prefixIcon: Icon(Icons.lock_outline),
+                        prefixIcon: const Icon(Icons.lock_outline),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                       ),
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     // Center(
                     //   child: Container(
                     //     width: 323,
@@ -108,12 +108,12 @@ class RegisterScreen extends StatelessWidget {
                     //   ),
                     // ),
                     CustomButtonAuth(title: 'SIGN UP', onPressed: () { Navigator.pushNamed(context,'verifyCodeScreen'); },),
-                SizedBox(height: 15,),
+                    const SizedBox(height: 15,),
                 Center(
                   child: RichText(
-                    text: TextSpan(text: 'Already  have an account?',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12,color: Colors.black), children: [
+                    text: TextSpan(text: 'Already  have an account?',style: const TextStyle(fontWeight: FontWeight.w400,fontSize: 12,color: Colors.black), children: [
                       TextSpan(
-                        text: 'Log In',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: Colors.blue),
+                        text: 'Log In',style: const TextStyle(fontWeight: FontWeight.w500,fontSize: 12,color: Colors.blue),
                         recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context,'loginScreen'),
                       )
                     ]),

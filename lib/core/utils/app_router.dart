@@ -5,7 +5,8 @@ import '../../features/auth/presentation/views/forgot_passwprd_screen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/register_screen.dart';
 import '../../features/auth/presentation/views/verify_code_screen.dart';
-import '../../features/splash/presentation/views/onboarding_one_screen.dart';
+import '../../features/home/presentation/views/course_screen.dart';
+import '../../features/home/presentation/views/home_screen.dart';
 import '../../features/splash/presentation/views/onboarding_pageView.dart';
 import '../../features/splash/presentation/views/splash_screen.dart';
 
@@ -18,6 +19,8 @@ class AppRouter{
        case 'registerScreen':return MaterialPageRoute(builder: (_)=>RegisterScreen());
        case 'verifyCodeScreen':return MaterialPageRoute(builder: (_)=>const VerifyCodeScreen());
        case 'forgotPasswordScreen':return MaterialPageRoute(builder: (_)=>ForgotPasswordScreen());
+       case 'homeScreen':return MaterialPageRoute(builder: (_)=>HomeScreen());
+       case 'courseScreen':return MaterialPageRoute(builder: (_)=>CourseScreen());
     }
   }
 }

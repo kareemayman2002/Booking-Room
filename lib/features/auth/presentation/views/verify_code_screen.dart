@@ -19,7 +19,8 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          CustomLogoAuth(),
+          const SizedBox(height: 120,),
+          const CustomLogoAuth(),
           Padding(
             padding: const EdgeInsets.only(
                 left: 24, right: 24, top: 45),
@@ -27,7 +28,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                 width: 342,
                 height: 300,
                 decoration: BoxDecoration(
-                    color: Color(0xffF2F2F2),
+                    color: const Color(0xffF2F2F2),
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -50,22 +51,22 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                           ),
                           ////////////////////////////////////
 
-                          SizedBox(height: 40,),
+                          const SizedBox(height: 40,),
 
                           Center(
                             child: VerificationCode(
-                              textStyle: TextStyle(fontSize: 20.0, color: Colors.green),
+                              textStyle: const TextStyle(fontSize: 20.0, color: Colors.green),
                               // keyboardType: TextInputType.number,
-                              underlineColor: Color(0xff68F3D6), // If this is null it will use primaryColor: Colors.red from Theme
+                              underlineColor: const Color(0xff68F3D6), // If this is null it will use primaryColor: Colors.red from Theme
                               length: 6,
-                              margin: EdgeInsets.only(left: 18),
-                              cursorColor: Color(0xff68F3D6),
+                              margin: const EdgeInsets.only(left: 18),
+                              cursorColor: const Color(0xff68F3D6),
                               onCompleted: (String value) {  },
                               onEditing: (bool value) {  },
                             ),
                           ),
 
-                          SizedBox(height: 40,),
+                          const SizedBox(height: 40,),
 
                           ///////////////////////////////////
                           // Center(
@@ -113,8 +114,8 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               children: <Widget>[
 
                 Image.asset(AppAssets.success),
-                Center(child: Text('Success',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20),)),
-                Center(child: Text(' You have successfully reset \n your password.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),)),
+                const Center(child: Text('Success',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20),)),
+                const Center(child: Text(' You have successfully reset \n your password.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),)),
               ],
             ),
           ),

@@ -11,13 +11,13 @@ class ForgotPasswordScreen extends StatelessWidget {
         child: Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 80,),
-          CustomLogoAuth(),
+          const SizedBox(height: 80,),
+          const CustomLogoAuth(),
           Container(
             width: 342,
             height: 300,
             decoration: BoxDecoration(
-                color: Color(0xffF2F2F2),
+                color: const Color(0xffF2F2F2),
 
                 borderRadius: BorderRadius.circular(20)
             ),
@@ -41,21 +41,21 @@ class ForgotPasswordScreen extends StatelessWidget {
                         color: Color(0xff101623)),
                   ),
 
-                  SizedBox(height: 40,),
+                  const SizedBox(height: 40,),
 
-                  Text("Email",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
-                  SizedBox(height: 5),
+                  const Text("Email",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                  const SizedBox(height: 5),
                   TextField(
                     controller: email,
                     decoration: InputDecoration(
                       hintText: 'Enter your Email',
-                      hintStyle: TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
+                      hintStyle: const TextStyle(fontSize: 10,fontWeight: FontWeight.w400),
                       // labelText: 'البريد الإلكتروني',
-                      prefixIcon: Icon(Icons.email_outlined),
+                      prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                     ),
                   ),
-                  SizedBox(height: 24,),
+                  const SizedBox(height: 24,),
                   // Center(
                   //   child: Container(
                   //     width: 323,
