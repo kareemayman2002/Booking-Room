@@ -1,10 +1,5 @@
 import 'package:booking_room/core/utils/assets.dart';
-import 'package:booking_room/features/home/presentation/views/widgets/custom_event.dart';
-import 'package:booking_room/features/home/presentation/views/widgets/custom_offer.dart';
-import 'package:booking_room/features/home/presentation/views/widgets/gridview_event.dart';
-import 'package:booking_room/features/home/presentation/views/widgets/gridview_offers.dart';
 import 'package:flutter/material.dart';
-
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -15,11 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-  final List<Widget> children = [
-    // // GridviewEvent(),
-    // GridviewEvent(),
-    // GridviewOffers()
-  ];
+
   void onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
@@ -30,15 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   // backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        //   leading: const Icon(Icons.menu, color: Colors.white),
-        //   actions: const [
-        //     Icon(Icons.notifications_none, color: Colors.white),
-        //     SizedBox(width: 10),
-        //   ],
-        // ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: ClipRRect(
           borderRadius: BorderRadius.circular(50),
@@ -46,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 60,
             height: 60,
             child: FloatingActionButton(
-              backgroundColor: Color.fromRGBO(32, 71, 62, 0.59),
+              backgroundColor: const Color.fromRGBO(32, 71, 62, 0.59),
               onPressed: () {
                 Navigator.pushNamed(context, 'courseScreen');
               },
@@ -96,12 +78,163 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: CustomScrollView(
           slivers: [
-            // SliverToBoxAdapter(child: Container(child:children.elementAt(selectedIndex),),),
-
+            // القسم العلوي بالصورة والأيقونات
+            SliverToBoxAdapter(
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(AppAssets.home), // استبدل الصورة بالمناسبة
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    right: 10,
+                    child: IconButton(
+                      icon: const Icon(Icons.notifications),
+                      color: Colors.white,
+                      onPressed: () {
+                        // فتح صفحة الإشعارات
+                        Navigator.pushNamed(context, 'notificationScreen');
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: IconButton(
+                      icon: const Icon(Icons.menu),
+                      color: Colors.white,
+                      onPressed: () {
+                        // فتح القائمة الجانبية
+                        Scaffold.of(context).openDrawer();
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 10,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: const [
+                            Icon(Icons.star, color: Colors.yellow),
+                            Text("4.8", style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          "Course Location",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    left: 10,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Course Name",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        ),
+                        SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Icon(Icons.circle, size: 8, color: Colors.white),
+                            SizedBox(width: 5),
+                            Icon(Icons.circle, size: 8, color: Colors.white),
+                            SizedBox(width: 5),
+                            Icon(Icons.circle, size: 8, color: Colors.white),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // قسم الريفيو
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: const Text(
+                  "Reviews",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 100,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildReviewImage('assets/images/review1.png'),
+                    _buildReviewImage('assets/images/review2.png'),
+                    _buildReviewImage('assets/images/review3.png'),
+                    _buildReviewImage('assets/images/review4.png'),
+                  ],
+                ),
+              ),
+            ),
+            // النقاط التفاعلية
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.circle, size: 8, color: Colors.grey),
+                    SizedBox(width: 5),
+                    Icon(Icons.circle, size: 8, color: Colors.black),
+                    SizedBox(width: 5),
+                    Icon(Icons.circle, size: 8, color: Colors.grey),
+                    SizedBox(width: 5),
+                    Icon(Icons.circle, size: 8, color: Colors.grey),
+                  ],
+                ),
+              ),
+            ),
+            // قسم التصنيفات
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: const Text(
+                  "Categories",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ],
-        )
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReviewImage(String imagePath) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(
+          imagePath,
+          width: 80,
+          height: 80,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
 }
-
