@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/colors.dart';
-class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+class CustomDrawer extends StatefulWidget {
+   CustomDrawer({super.key});
 
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,6 +30,7 @@ class CustomDrawer extends StatelessWidget {
             title: const Text("English",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500)),
             leading: const Icon(Icons.language_outlined,size: 24,
               color: AppColors.iconDrawer,),
+            trailing: Icon(Icons.arrow_drop_down, color: AppColors.iconDrawer),
             onTap: () {
 
             },

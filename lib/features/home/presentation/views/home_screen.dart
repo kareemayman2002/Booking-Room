@@ -1,8 +1,14 @@
 import 'package:booking_room/core/utils/assets.dart';
 import 'package:booking_room/core/utils/colors.dart';
+import 'package:booking_room/features/event/presentation/views/event_details_screen.dart';
 import 'package:booking_room/features/home/presentation/views/widgets/custom_drawer.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+
+import '../../../event/presentation/views/event_screen.dart';
+import '../../../offer/presentation/views/offers_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,8 +21,24 @@ class _HomeScreenState extends State<HomeScreen> {
   // var scaffoldKey = GlobalKey<ScaffoldState>();
   int selectedIndex = 0;
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  final items = [
+    Image.asset(AppAssets.review),
+    Image.asset(AppAssets.review),
+    Image.asset(AppAssets.review),
+    Image.asset(AppAssets.review),
+    Image.asset(AppAssets.review),
+  ];
 
-  void onItemTapped(int index) {
+  final List<Widget>Screen=[
+    HomeScreen(),
+    EventScreen(),
+    OffersScreen(),
+
+  ];
+
+  int currentIndex = 0;
+
+  void onItemTapped(index) {
     setState(() {
       selectedIndex = index;
     });
@@ -47,8 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex,
-          onTap: onItemTapped,
+          currentIndex:selectedIndex ,
+          // onTap: onItemTapped,
+          elevation: 5,
           items: [
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -64,7 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 20,
                   height: 20,
                 ),
-                label: 'Book'),
+                label: 'Book'
+            ),
             BottomNavigationBarItem(
                 icon: Image.asset(
                   AppAssets.offer,
@@ -89,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         body: CustomScrollView(
           slivers: [
+            SliverToBoxAdapter(child: Screen.elementAt(selectedIndex),),
             // القسم العلوي بالصورة والأيقونات
             SliverToBoxAdapter(
               child: Stack(
@@ -127,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const Icon(Icons.menu,color: Colors.white,),
                       )),
                   Positioned(
-                    bottom: 30,
+                    bottom: 42,
                     right: 20,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -177,28 +202,30 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       )),
-                  const Positioned(
+                  Positioned(
                     bottom: 10,
                     left: 10,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Course Name",
+                        const Text(
+                          " Course Name",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
-                        SizedBox(height: 5),
-                        Row(
-                          children: [
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-                            SizedBox(width: 5),
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-                            SizedBox(width: 5),
-                            Icon(Icons.circle, size: 8, color: Colors.white),
-                          ],
+                        const SizedBox(height: 5),
+                        DotsIndicator(
+                          dotsCount: items.length,
+                          position: currentIndex,
+                          decorator: const DotsDecorator(
+                            size: Size.square(10.0),
+                            activeSize: Size.square(10.0),
+                            color: Color.fromRGBO(117, 200, 183, 0.48),
+                            // Inactive color
+                            activeColor: AppColors.iconDrawer,
+                          ),
                         ),
                       ],
                     ),
@@ -217,39 +244,62 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: 100,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    _buildReviewImage(AppAssets.review),
-                    _buildReviewImage(AppAssets.review),
-                    _buildReviewImage(AppAssets.review),
-                    _buildReviewImage(AppAssets.review),
-                    _buildReviewImage(AppAssets.review),
+              child: CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        currentIndex = index;
+                      });
+                    },
+                  ),
+                  items: items),
+            ),
+            SliverToBoxAdapter(
+                child: DotsIndicator(
+              dotsCount: items.length,
+              position: currentIndex,
+              decorator: DotsDecorator(
+                size: const Size.square(12.0),
+                activeSize: const Size.square(12.0),
+                color: Color.fromRGBO(117, 200, 183, 0.48),
+                // Inactive color
+                activeColor: AppColors.iconDrawer,
+              ),
+            )),
 
-                  ],
-                ),
-              ),
-            ),
+            // ListView(
+            // scrollDirection: Axis.horizontal,
+            // children: [
+            // _buildReviewImage(AppAssets.review),
+            // _buildReviewImage(AppAssets.review),
+            // _buildReviewImage(AppAssets.review),
+            // _buildReviewImage(AppAssets.review),
+            // _buildReviewImage(AppAssets.review),
+            //
+            // ],
+            // ),
+            // ),
             // النقاط التفاعلية
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.circle, size: 8, color: Colors.grey),
-                    SizedBox(width: 5),
-                    Icon(Icons.circle, size: 8, color: Colors.black),
-                    SizedBox(width: 5),
-                    Icon(Icons.circle, size: 8, color: Colors.grey),
-                    SizedBox(width: 5),
-                    Icon(Icons.circle, size: 8, color: Colors.grey),
-                  ],
-                ),
-              ),
-            ),
+            // const SliverToBoxAdapter(
+            // child: Padding(
+            // padding: EdgeInsets.symmetric(vertical: 10),
+            // child: Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // children: [
+            // Icon(Icons.circle, size: 8, color: Colors.grey),
+            // SizedBox(width: 5),
+            // Icon(Icons.circle, size: 8, color: Colors.black),
+            // SizedBox(width: 5),
+            // Icon(Icons.circle, size: 8, color: Colors.grey),
+            // SizedBox(width: 5),
+            // Icon(Icons.circle, size: 8, color: Colors.grey),
+            // ],
+            // ),
+            // ),
+            // ),
             // قسم التصنيفات
             const SliverToBoxAdapter(
               child: Padding(
@@ -260,28 +310,90 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+
+            SliverToBoxAdapter(
+              child: ClipPath(
+                clipper: RoundedDiagonalPathClipper(),
+                child: Container(
+                  width: 342,
+                  height: 200,
+                  color: const Color.fromRGBO(32, 71, 62, 0.65),
+                  child: Center(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Text(
+                        "Courses",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24,
+                            color: Colors.white),
+                      ),
+                      Image.asset(
+                        AppAssets.onboarding_1,
+                        width: 174,
+                        height: 151,
+                      ),
+                    ],
+                  )),
+                ),
+              ),
+            ),
+
+            SliverToBoxAdapter(
+              child: ClipPath(
+                clipper: RoundedDiagonalPathClipper(),
+                child: Container(
+                  width: 163,
+                  height: 250,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                    color: Colors.orange,
+                  ),
+                  child: Center(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const Text(
+                        "Event",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                      Image.asset(
+                        AppAssets.eventcat,
+                        width: 125,
+                        height: 111,
+                      ),
+                    ],
+                  )),
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
   }
 
-  Widget _buildReviewImage(String imagePath) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Container(
-        width: 217,
-        height: 149,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Image.asset(
-          imagePath,
-          width: 80,
-          height: 80,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
+// Widget _buildReviewImage(String imagePath) {
+//   return Padding(
+//     padding: const EdgeInsets.symmetric(horizontal: 8),
+//     child: Container(
+//       width: 217,
+//       height: 149,
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       child: Image.asset(
+//         imagePath,
+//         width: 80,
+//         height: 80,
+//         fit: BoxFit.cover,
+//       ),
+//     ),
+//   );
+// }
 }

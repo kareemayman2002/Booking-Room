@@ -80,7 +80,7 @@ class CustomCourse extends StatelessWidget {
                     left: 16,
                     child: Container(
                       padding: const EdgeInsets.only(left: 24,right: 24),
-                      width: 313,
+                      width: 310,
                       height: 44,
                       alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(

@@ -21,4 +21,7 @@ class AppAssets{
   static const offers = "$asset/img_15.png";
   static const menue = "$asset/img_17.png";
   static const review = "$asset/img_18.png";
+  static const eventcat = "$asset/img_19.png";
+  static const offercat = "$asset/img_20.png";
+  static const event_details = "$asset/event_details.png";
 }
