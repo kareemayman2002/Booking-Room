@@ -23,5 +23,8 @@ class AppAssets{
   static const review = "$asset/img_18.png";
   static const eventcat = "$asset/img_19.png";
   static const offercat = "$asset/img_20.png";
+  static const training = "$asset/img_21.png";
+  static const location_line = "$asset/img_22.png";
   static const event_details = "$asset/event_details.png";
+  static const discount_book = "$asset/img_23.png";
 }

@@ -1,4 +1,5 @@
 import 'package:booking_room/core/utils/app_router.dart';
+import 'package:booking_room/features/home/presentation/views/home_screen_body.dart';
 import 'package:booking_room/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       //   useMaterial3: true,
       // ),
+
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,);
   }
