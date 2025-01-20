@@ -5,7 +5,7 @@ import 'package:booking_room/features/splash/presentation/views/widgets/custom_s
 import 'package:booking_room/features/splash/presentation/views/widgets/custom_title_onboarding.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/colors.dart';
+import '../../../../../core/utils/colors.dart';
 class OnboardingThreeScreen extends StatelessWidget {
   const OnboardingThreeScreen({super.key});
 

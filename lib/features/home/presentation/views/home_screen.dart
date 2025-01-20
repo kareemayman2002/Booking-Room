@@ -1,4 +1,6 @@
+import 'package:booking_room/features/home/presentation/views/widgets/bottom_navigation.dart';
 import 'package:booking_room/features/home/presentation/views/widgets/custom_drawer.dart';
+import 'package:booking_room/features/home/presentation/views/widgets/floatbtn.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
@@ -14,81 +16,29 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 int selectedIndex = 0;
-final List<Widget>Screen=[
-  HomeScreenBody(),
-  // EventScreen(),
-  BookScreen(),
-  OffersScreen(),
+const List<Widget>screen=[
+   HomeScreenBody(),
+   BookScreen(),
+   OffersScreen(),
 ];
 
 
 class _HomeScreenState extends State<HomeScreen> {
+
   void onItemTapped(index) {
     setState(() {
       selectedIndex = index;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex:selectedIndex ,
-        onTap: onItemTapped,
-        elevation: 5,
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              AppAssets.home,
-              width: 20,
-              height: 20,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                AppAssets.book,
-                width: 20,
-                height: 20,
-              ),
-              label: 'Book'
-          ),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                AppAssets.offer,
-                width: 20,
-                height: 20,
-              ),
-              label: 'Offers'),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                AppAssets.more,
-                width: 20,
-                height: 20,
-              ),
-              label: 'More'),
-        ],
-        type: BottomNavigationBarType.fixed,
-      ),
+      bottomNavigationBar:  BottomNavigation(onTap: onItemTapped,),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ClipRRect(
         borderRadius: BorderRadius.circular(50),
-        child: Container(
-          width: 60,
-          height: 60,
-          child: FloatingActionButton(
-            backgroundColor: const Color.fromRGBO(32, 71, 62, 0.59),
-            onPressed: () {
-              Navigator.pushNamed(context, 'courseScreen');
-            },
-            child: Image.asset(
-              AppAssets.logo,
-              width: 52,
-              height: 52,
-            ),
-          ),
-        ),
+        child: const Floatbtn(),
       ),
       // bottomNavigationBar: BottomNavigationBar(
       //   currentIndex:selectedIndex ,
@@ -130,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // ),
 
       body: Container(
-        child: Screen.elementAt(selectedIndex),
+        child: screen.elementAt(selectedIndex),
       ),
     );
   }

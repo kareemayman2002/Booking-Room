@@ -11,7 +11,7 @@ class EventScreen extends StatelessWidget {
           onTap: (){
             Navigator.pushNamed(context, 'eventDetailsScreen');
           },
-          child: GridviewEvent()),
+          child: const GridviewEvent()),
     ));
   }
 }

@@ -6,23 +6,23 @@ class CustomButtonAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: 323,
         height: 50,
         child: ElevatedButton(
           onPressed:onPressed,
-          child: Text(
-            title,
-            style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 12,
-                color: Colors.white),
-          ),
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xff20473E),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+          ),
+          child: Text(
+            title,
+            style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 12,
+                color: Colors.white),
           ),
         ),
       ),

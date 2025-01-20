@@ -26,11 +26,11 @@ class BookScreen extends StatelessWidget {
                         "Booking Review",
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 20,),
-                      CustomBookingTraning(),
-                      SizedBox(height: 26,),
-                      CustomPaymentReview(),
-                      SizedBox(height: 39,),
+                      const SizedBox(height: 20,),
+                      const CustomBookingTraning(),
+                      const SizedBox(height: 26,),
+                      const CustomPaymentReview(),
+                      const SizedBox(height: 39,),
                       Container(
                         width: 342,
                         decoration: BoxDecoration(
@@ -48,7 +48,7 @@ class BookScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14),),
                                 Container(
-                                  margin: EdgeInsets.only(top: 10),
+                                  margin: const EdgeInsets.only(top: 10),
                                   width: 99,
                                   height: 33,
                                   decoration: BoxDecoration(
@@ -58,7 +58,7 @@ class BookScreen extends StatelessWidget {
                                   child: MaterialButton(
                                     color: const Color.fromRGBO(117, 200, 183, 0.33),
                                     onPressed: (){},
-                                    child: Text("Add promo",
+                                    child: const Text("Add promo",
                                       style: TextStyle(
                                           color: AppColors.iconDrawer,
                                           fontWeight: FontWeight.w400,
@@ -79,7 +79,7 @@ class BookScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Image.asset(AppAssets.discount_book,height: 17,width: 22,),
-                                    Text("30% off 10 booking (up to EGP 150)",style: TextStyle(
+                                    const Text("30% off 10 booking (up to EGP 150)",style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 10,
                                         color: Color(0xff9A9A9A)
@@ -94,7 +94,7 @@ class BookScreen extends StatelessWidget {
                                       child: MaterialButton(
                                         color: const Color.fromRGBO(117, 200, 183, 0.33),
                                         onPressed: (){},
-                                        child: Text("Apply",style: TextStyle(
+                                        child: const Text("Apply",style: TextStyle(
                                             color: AppColors.iconDrawer,
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12),),),
@@ -103,16 +103,16 @@ class BookScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Divider(),
-                            SizedBox(height: 12,),
-                            Text("       Booking Charges",style: TextStyle(
+                            const Divider(),
+                            const SizedBox(height: 12,),
+                            const Text("       Booking Charges",style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14),),
-                            SizedBox(height: 12,),
-                            Divider(),
-                            SizedBox(height: 12,),
-                            Row(
+                            const SizedBox(height: 12,),
+                            const Divider(),
+                            const SizedBox(height: 12,),
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text("x1 Day EGP 100.0 x 1 Seat",style: TextStyle(
@@ -125,8 +125,8 @@ class BookScreen extends StatelessWidget {
                                     fontSize: 14),),
                               ],
                             ),
-                            SizedBox(height: 24,),
-                            Row(
+                            const SizedBox(height: 24,),
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("       Total Due",style: TextStyle(
@@ -139,10 +139,10 @@ class BookScreen extends StatelessWidget {
                                     fontSize: 14),),
                               ],
                             ),
-                            SizedBox(height: 24,),
+                            const SizedBox(height: 24,),
                           ],),
                       ),
-                      SizedBox(height: 39,),
+                      const SizedBox(height: 39,),
                       Container(
                         width: 342,
                         decoration: BoxDecoration(
@@ -151,15 +151,15 @@ class BookScreen extends StatelessWidget {
                         ),
                         child: MaterialButton(
                           height: 51,
-                          color: Color(0xff20473E),
+                          color: const Color(0xff20473E),
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Book",
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,color: Colors.white),
                           ),
                         ),
                       ),
-                      SizedBox(height: 26,),
+                      const SizedBox(height: 26,),
                       Container(
                         width: 342,
                         decoration: BoxDecoration(
@@ -170,13 +170,13 @@ class BookScreen extends StatelessWidget {
                           color: Colors.white,
                           height: 51,
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Cancellation Policy",
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,color: Colors.black54),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50,),
+                      const SizedBox(height: 50,),
                     ],
                   ),
                 ),

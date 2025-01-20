@@ -7,7 +7,7 @@ class CustomLogoAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(left: 79, right: 79,
+    return Padding(padding: const EdgeInsets.only(left: 79, right: 79,
         bottom: 22)
       , child: Image.asset(AppAssets.logo, fit: BoxFit.fill,),);
   }

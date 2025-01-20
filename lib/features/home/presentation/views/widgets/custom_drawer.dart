@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/colors.dart';
 class CustomDrawer extends StatefulWidget {
-   CustomDrawer({super.key});
+   const CustomDrawer({super.key});
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -14,7 +14,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: ListView(
         children: [
           Image.asset(AppAssets.logo),
@@ -30,7 +30,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text("English",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500)),
             leading: const Icon(Icons.language_outlined,size: 24,
               color: AppColors.iconDrawer,),
-            trailing: Icon(Icons.arrow_drop_down, color: AppColors.iconDrawer),
+            trailing: const Icon(Icons.arrow_drop_down, color: AppColors.iconDrawer),
             onTap: () {
 
             },

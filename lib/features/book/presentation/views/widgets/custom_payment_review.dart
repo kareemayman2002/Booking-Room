@@ -12,7 +12,7 @@ class CustomPaymentReview extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
           color: Colors.white
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -20,7 +20,7 @@ class CustomBookingTraning extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Image.asset(AppAssets.training,width: 100,height: 100,),
           ),
-          Column(
+          const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Training room",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.black),textAlign: TextAlign.center,),

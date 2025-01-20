@@ -1,9 +1,9 @@
-import 'package:booking_room/features/splash/presentation/views/onboarding_two_screen.dart';
+import 'package:booking_room/features/splash/presentation/views/widgets/onboarding_two_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'onboarding_one_screen.dart';
-import 'onboarding_three_screen.dart';
+import 'widgets/onboarding_one_screen.dart';
+import 'widgets/onboarding_three_screen.dart';
 
 class OnboardingPageview extends StatefulWidget {
   const OnboardingPageview({super.key});
