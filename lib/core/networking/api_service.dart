@@ -2,11 +2,11 @@ import 'package:dio/dio.dart';
 
 class ApiService{
   final Dio dio;
-
   ApiService(this.dio);
-   get()async{
-    var respose = dio.get("path");
-    // return returnspose.dat
+  String _baseUrl="";
+   Future<Map<String,dynamic>> get()async{
+    Response respose =await dio.get("path");
+     return respose.data;
   }
 
 
